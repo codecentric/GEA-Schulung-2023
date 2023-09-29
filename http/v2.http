@@ -1,0 +1,4 @@
+/// Part 1:
+
+### Provice name "Lucy"
+GET http://localhost:8080/v2/part1?name=Lucy
