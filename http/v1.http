@@ -1,0 +1,49 @@
+/// Part 1: Basic Methods
+
+### Request via GET
+GET http://localhost:8080/v1/part1
+
+### Request via PUT
+PUT http://localhost:8080/v1/part1
+
+### Request via POST
+POST http://localhost:8080/v1/part1
+
+### Request via DELETE
+DELETE http://localhost:8080/v1/part1
+
+/// Part 2: Content-Type
+
+### Request any content from server
+GET http://localhost:8080/v1/part2
+Content-Type: *
+
+### Request html content from server
+GET http://localhost:8080/v1/part2
+Content-Type: text/html
+
+### Request json content from server
+GET http://localhost:8080/v1/part2
+Content-Type: application/json
+
+/// Part 3: Headers
+
+### Request json content from server
+GET http://localhost:8080/v1/part3
+User-Agent: iPhone
+
+/// Part 4: Request Variables
+
+### Provide no name
+GET http://localhost:8080/v1/part4?name=Bob
+
+/// Part 5: Response Status
+
+### Provice no name
+GET http://localhost:8080/v1/part5
+
+### Provice name "Matt"
+GET http://localhost:8080/v1/part5?name=Matt
+
+### Provice name "Lucy"
+GET http://localhost:8080/v1/part5?name=Lucy
