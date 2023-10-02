@@ -1,5 +1,6 @@
 package com.gea.geaschulung2023.v1;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,8 +57,13 @@ public class ControllerV1 {
     /// Part 3: Headers
 
     @GetMapping("/part3")
-    public String greetOnUserAgent(@RequestHeader("User-Agent") String userAgent) {
+    public String greetOnUserAgent(@RequestHeader(HttpHeaders.USER_AGENT) String userAgent) {
         return String.format("You requested via %s!", userAgent);
+    }
+
+    @PostMapping("/part3")
+    public String greetOnCustomHeader(@RequestHeader("Custom-Header") String customHeader) {
+        return String.format("You requested and sent a custom header: %s", customHeader);
     }
 
     /// Part 4: Request Variables
@@ -71,9 +77,26 @@ public class ControllerV1 {
         return String.format("Hello %s!", name);
     }
 
+    @GetMapping("/{region}/part5")
+    public String helloWithPathVariable(@PathVariable String region, @RequestParam String name) {
+        if (name == null) {
+            return "Please provide a name";
+        }
+
+        if (region == null) {
+            return "Please provide a valid region";
+        }
+
+        if (region.equalsIgnoreCase("de-DE")) {
+            return String.format("Hallo %s!", name);
+        }
+
+        return String.format("Hello %s!", name);
+    }
+
     /// Part 5: Response Status
 
-    @GetMapping("/part5")
+    @GetMapping("/part6")
     public ResponseEntity<String> helloWithResponseCodes(@RequestParam(required = false) String name) {
         if (name == null) {
             return ResponseEntity.badRequest().body("Please provide a name");

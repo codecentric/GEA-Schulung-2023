@@ -32,18 +32,29 @@ Content-Type: application/json
 GET http://localhost:8080/v1/part3
 User-Agent: iPhone
 
+### Request any content from server
+POST http://localhost:8080/v1/part3
+Custom-Header: CustomHeader
+
 /// Part 4: Request Variables
 
-### Provide no name
+### Provide name "Bob"
 GET http://localhost:8080/v1/part4?name=Bob
+
+// Part 5: Path Variable
+### Provide name "Bob" and region "us"
+GET http://localhost:8080/v1/en-US/part5?name=Bob
+
+### Provide name "Bob" and region "de"
+GET http://localhost:8080/v1/de-DE/part5?name=Bob
 
 /// Part 5: Response Status
 
 ### Provice no name
-GET http://localhost:8080/v1/part5
+GET http://localhost:8080/v1/part6
 
 ### Provice name "Matt"
-GET http://localhost:8080/v1/part5?name=Matt
+GET http://localhost:8080/v1/part6?name=Matt
 
 ### Provice name "Lucy"
-GET http://localhost:8080/v1/part5?name=Lucy
+GET http://localhost:8080/v1/part6?name=Lucy
