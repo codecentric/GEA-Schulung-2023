@@ -22,7 +22,5 @@ public interface FarmerRespositoryV4 extends Repository<FarmerV4, Long> {
 
     List<FarmerV4> findAll();
 
-    boolean existsByNameAndSurname(String name, String surname);
-
     int countByNameAndSurname(String name, String surname);
 }

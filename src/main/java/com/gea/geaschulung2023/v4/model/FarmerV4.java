@@ -1,15 +1,10 @@
 package com.gea.geaschulung2023.v4.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,7 +17,7 @@ public class FarmerV4 {
     private String name, surname;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<FarmV4> farms = new HashSet<FarmV4>();
+    private Set<FarmV4> farms = new HashSet<>();
 
     public static FarmerV4 exampleFarmer() {
         FarmerV4 farmer = new FarmerV4();

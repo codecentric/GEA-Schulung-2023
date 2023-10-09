@@ -2,11 +2,9 @@ package com.gea.geaschulung2023.v4.service;
 
 import com.gea.geaschulung2023.v4.model.FarmerV4;
 import com.gea.geaschulung2023.v4.repository.FarmerRespositoryV4;
-import com.gea.geaschulung2023.v5.model.FarmerV5;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,5 @@
 package com.gea.geaschulung2023.v5.service;
 
-import com.gea.geaschulung2023.v4.model.FarmerV4;
 import com.gea.geaschulung2023.v5.model.FarmerV5;
 import com.gea.geaschulung2023.v5.repository.FarmerRespositoryV5;
 import org.springframework.dao.DataIntegrityViolationException;

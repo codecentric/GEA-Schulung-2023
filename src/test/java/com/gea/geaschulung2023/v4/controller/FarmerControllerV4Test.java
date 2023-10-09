@@ -1,7 +1,6 @@
 package com.gea.geaschulung2023.v4.controller;
 
 import com.gea.geaschulung2023.v4.model.FarmerV4;
-import com.gea.geaschulung2023.v4.service.FarmServiceV4;
 import com.gea.geaschulung2023.v4.service.FarmerServiceV4;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

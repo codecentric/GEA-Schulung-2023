@@ -17,14 +17,14 @@ public class FarmerV5 {
     private String name, surname;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<FarmV5> farms = new HashSet<FarmV5>();
+    private Set<FarmV5> farms = new HashSet<>();
 
     public static FarmerV5 exampleFarmer() {
         FarmerV5 farmer = new FarmerV5();
         farmer.setName("John");
         farmer.setSurname("Test");
 
-        Set<FarmV5> farms = new HashSet<FarmV5>();
+        Set<FarmV5> farms = new HashSet<>();
 
         AddressV5 addressV4 = new AddressV5();
         addressV4.setStreet("Testing Street");

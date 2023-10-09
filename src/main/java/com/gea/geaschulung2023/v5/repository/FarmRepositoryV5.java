@@ -1,7 +1,6 @@
 package com.gea.geaschulung2023.v5.repository;
 
 import com.gea.geaschulung2023.v5.model.FarmV5;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;
