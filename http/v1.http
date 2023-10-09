@@ -48,13 +48,24 @@ GET http://localhost:8080/v1/en-US/part5?name=Bob
 ### Provide name "Bob" and region "de"
 GET http://localhost:8080/v1/de-DE/part5?name=Bob
 
-/// Part 5: Response Status
+/// Part 6: Response Status
 
-### Provice no name
+### Provide no name
 GET http://localhost:8080/v1/part6
 
-### Provice name "Matt"
+### Provide name "Matt"
 GET http://localhost:8080/v1/part6?name=Matt
 
-### Provice name "Lucy"
+### Provide name "Lucy"
 GET http://localhost:8080/v1/part6?name=Lucy
+
+/// Final Practice
+### Say Hello to Matt
+GET http://localhost:8080/v1/gea/my-greeting-endpoint?name=Matt&surname=Damon
+
+### Say Hello to Bob Dylan without Age
+GET http://localhost:8080/v1/gea/my-greeting-endpoint?name=Bob&surname=Dylan
+
+### Say Hello to Bob Dylan with Age
+GET http://localhost:8080/v1/gea/my-greeting-endpoint?name=Bob&surname=Dylan&age=82
+

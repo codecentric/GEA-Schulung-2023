@@ -1,10 +1,13 @@
 package com.gea.geaschulung2023.v1;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/v1")
@@ -77,6 +80,8 @@ public class ControllerV1 {
         return String.format("Hello %s!", name);
     }
 
+    // Part 5: Path Variables
+
     @GetMapping("/{region}/part5")
     public String helloWithPathVariable(@PathVariable String region, @RequestParam String name) {
         if (name == null) {
@@ -94,7 +99,7 @@ public class ControllerV1 {
         return String.format("Hello %s!", name);
     }
 
-    /// Part 5: Response Status
+    /// Part 6: Response Status
 
     @GetMapping("/part6")
     public ResponseEntity<String> helloWithResponseCodes(@RequestParam(required = false) String name) {
@@ -105,5 +110,27 @@ public class ControllerV1 {
         }
 
         return ResponseEntity.ok(String.format("Hello %s!", name));
+    }
+
+    /// Part 7: final exercise v1
+
+    @GetMapping(value = "/{companyName}/my-greeting-endpoint", produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> getEndpoint(@PathVariable String companyName,
+                                              @RequestParam String name,
+                                              @RequestParam String surname,
+                                              @RequestParam(required = false) Optional<Integer> age) {
+        if (name == null || surname == null) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("Please provide a full name.");
+        }
+        if (name.equals("Matt")) {
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED)
+                    .body("You're not allowed, Matt!");
+        }
+        String ageInResponse = age.isPresent() ?
+                String.format("(%s years old) ", age.get()) : "";
+        return ResponseEntity.ok(String.format("Hello %s %s %sfrom company %s.", name, surname, ageInResponse, companyName));
     }
 }
