@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:spring-workshop-2023-tests
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true

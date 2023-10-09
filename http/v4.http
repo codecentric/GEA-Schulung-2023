@@ -1,0 +1,42 @@
+### create farmer
+POST http://localhost:8080/v4/farmer
+Content-Type: application/json
+
+{
+  "name": "Bob",
+  "surname": "Dylan",
+  "farms": [
+    {
+      "name": "Stonewall Farm",
+      "numberAnimals": 42,
+      "address": {
+        "street": "242 Chesterfield Rd",
+        "postcode": "03431",
+        "town": "Keene"
+      }
+    }
+  ]
+}
+
+### request existing farmer by id
+GET http://localhost:8080/v4/farmer/1
+Content-Type: application/json
+
+### add new farm to farmer #1
+POST http://localhost:8080/v4/farmer/1/farm
+Content-Type: application/json
+
+{
+   "name": "Charmingfare Farm",
+   "numberAnimals": 91,
+   "address": {
+     "street": "774 High St",
+      "postcode": "03034",
+      "town": "Candia"
+   }
+}
+
+### request all farms
+GET http://localhost:8080/v4/farms
+Content-Type: application/json
+
