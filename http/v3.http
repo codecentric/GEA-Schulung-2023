@@ -1,0 +1,35 @@
+// Introduce model
+
+### create farmer
+POST http://localhost:8080/v3/farmer
+Content-Type: application/json
+
+{
+  "name": "Bob",
+  "surname": "Dylan"
+}
+
+### request existing farmer by id
+GET http://localhost:8080/v3/farmer/1
+Content-Type: application/json
+
+### update existing farmer by id
+PUT http://localhost:8080/v3/farmer/1
+Content-Type: application/json
+
+{
+  "name": "Bob",
+  "surname": "Dylan"
+}
+
+### delete existing farmer by id
+DELETE http://localhost:8080/v3/farmer/1
+Content-Type: application/json
+
+### request existing farmer
+GET http://localhost:8080/v3/farmer?surname=Dylan
+Content-Type: application/json
+
+### request all farmers in id intervall
+GET http://localhost:8080/v3/farmers?from=1&to=100
+Content-Type: application/json
