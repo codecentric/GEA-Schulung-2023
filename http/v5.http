@@ -1,0 +1,30 @@
+### create farmer
+POST http://localhost:8080/v5/farmer
+Content-Type: application/json
+
+{
+  "name": "Bob",
+  "surname": "Dylan",
+  "farms": [
+    {
+      "name": "Stonewall Farm",
+      "numberAnimals": 42,
+      "address": {
+        "street": "242 Chesterfield Rd",
+        "postcode": "03431",
+        "town": "Keene"
+      }
+    }
+  ]
+}
+
+### request farmer by id
+GET http://localhost:8080/v5/farmer/1
+Content-Type: application/json
+
+### try to delete farmer without authentication
+DELETE http://localhost:8080/v5/farmer/1
+
+### delete farmer without authentication
+DELETE http://localhost:8080/v5/farmer/1
+Authorization: Basic farm.manager password
