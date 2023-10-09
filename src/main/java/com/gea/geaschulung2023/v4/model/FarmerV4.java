@@ -24,7 +24,7 @@ public class FarmerV4 {
         farmer.setName("John");
         farmer.setSurname("Test");
 
-        Set<FarmV4> farms = new HashSet<FarmV4>();
+        Set<FarmV4> farms = new HashSet<>();
 
         AddressV4 addressV4 = new AddressV4();
         addressV4.setStreet("Testing Street");
