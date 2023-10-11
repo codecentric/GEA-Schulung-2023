@@ -2,7 +2,6 @@ package com.gea.geaschulung2023.v5.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,8 +23,7 @@ public class HttpBasicSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers(HttpMethod.GET, "/v5/farms").hasAuthority("READ_PRIVILEGES")
-                        .requestMatchers("/v1/**", "/v2/**", "/v3/**", "/v4/**", "/v5/**").permitAll()
+                        .requestMatchers("/**").permitAll()
         ).httpBasic(Customizer.withDefaults());
         return http.build();
     }
