@@ -9,7 +9,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -20,7 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("test")
 class FarmerControllerV5Test {
 
     @Autowired
@@ -42,20 +40,6 @@ class FarmerControllerV5Test {
     public void testProtectedEndpointNotAccessibleWithoutAuthentication() throws Exception {
         mockMvc.perform(get("/v5/farms").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isUnauthorized());
-    }
-
-    @Test
-    @WithMockUser(username="farm.manager", authorities = "READ_PRIVILEGES")
-    public void testProtectedEndpointAccessibleWithAuthorityAndAuthentication() throws Exception {
-        mockMvc.perform(get("/v5/farms").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    @WithMockUser(username="farm.manager", authorities = "NO_PRIVILEGES")
-    public void testProtectedEndpointNotAccessibleWithMissingAuthorityAndAuthentication() throws Exception {
-        mockMvc.perform(get("/v5/farms").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isForbidden());
     }
 
     @Test

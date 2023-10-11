@@ -16,7 +16,6 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@ActiveProfiles("test")
 class FarmerServiceV4Test {
 
     @Mock

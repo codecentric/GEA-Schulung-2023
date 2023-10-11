@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-workshop-2023
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+logging:
+  level:
+    org.springframework.transaction: TRACE

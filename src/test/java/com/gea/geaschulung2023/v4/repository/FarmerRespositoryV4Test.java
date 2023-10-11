@@ -10,7 +10,6 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
-@ActiveProfiles("test")
 class FarmerRespositoryV4Test {
 
     @Autowired

@@ -118,7 +118,7 @@ public class ControllerV1 {
     public ResponseEntity<String> getEndpoint(@PathVariable String companyName,
                                               @RequestParam String name,
                                               @RequestParam String surname,
-                                              @RequestParam(required = false) Optional<Integer> age) {
+                                              @RequestParam(required = false) Integer age) {
         if (name == null || surname == null) {
             return ResponseEntity
                     .badRequest()
@@ -126,11 +126,12 @@ public class ControllerV1 {
         }
         if (name.equals("Matt")) {
             return ResponseEntity
-                    .status(HttpStatus.UNAUTHORIZED)
+                    .status(HttpStatus.FORBIDDEN)
                     .body("You're not allowed, Matt!");
         }
-        String ageInResponse = age.isPresent() ?
-                String.format("(%s years old) ", age.get()) : "";
+        String ageInResponse = age != null ?
+                String.format("(%s years old) ", age) : "";
         return ResponseEntity.ok(String.format("Hello %s %s %sfrom company %s.", name, surname, ageInResponse, companyName));
     }
+
 }

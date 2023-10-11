@@ -5,6 +5,7 @@ import com.gea.geaschulung2023.v5.service.FarmerServiceV5;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,6 +45,7 @@ public class FarmerControllerV5 {
         return savedUpdatedFarmer.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasRole('FARM_MANAGER')")
     @DeleteMapping("/farmer/{id}")
     public ResponseEntity<String> deleteFarmerById(@PathVariable Long id) {
         var isFarmerDeleted = farmerService.deleteFarmer(id);

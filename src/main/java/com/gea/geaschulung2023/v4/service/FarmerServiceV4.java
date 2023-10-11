@@ -18,7 +18,6 @@ public class FarmerServiceV4 {
         this.farmerRespository = farmerRespository;
     }
 
-    @Transactional
     public FarmerV4 createFarmer(FarmerV4 farmer) throws DataIntegrityViolationException {
         if (farmer.getName() == null || farmer.getSurname() == null) {
             return null;

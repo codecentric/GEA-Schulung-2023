@@ -24,7 +24,6 @@ public class HttpBasicSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers(HttpMethod.DELETE, "/v5/farmer/*").hasRole("FARM_MANAGER")
                         .requestMatchers(HttpMethod.GET, "/v5/farms").hasAuthority("READ_PRIVILEGES")
                         .requestMatchers("/v1/**", "/v2/**", "/v3/**", "/v4/**", "/v5/**").permitAll()
         ).httpBasic(Customizer.withDefaults());
@@ -38,16 +37,10 @@ public class HttpBasicSecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        PasswordEncoder encoder = passwordEncoder();
-        var encodedPassword = encoder.encode("password");
-        System.out.println("encoded password in security config: " + encodedPassword);
-
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("farm.manager")
-                .password(encodedPassword)
-//                .password("password")
+                .password("password")
                 .roles("FARM_MANAGER")
-                .authorities("READ_PRIVILEGES")
                 .build();
         return new InMemoryUserDetailsManager(user);
     }
